@@ -1,0 +1,26 @@
+<html>
+<head>
+    <meta charset= "utf-8">
+    <title>GEI AISI: Test Page</title>
+    <script type="text/javascript">
+        function getURL() {
+        	document.write("URL: " + window.location.href);
+        }
+	function getTIME() {
+		document.getElementById("current_date").innerHTML = Date();
+    	}
+    </script>
+</head>
+    <body>
+	<div style="width:600px;height:200px;border:2px solid #000;text-align: center;">
+	<strong><br>
+	<u>GEI AISI: 2022/2023</u>
+		<p><u>Apache Web Server (Vagrant VM)</u></p>
+		<p>Página web de [alumno/a]</p>
+
+		<p><script>getURL();</script></p>
+		<p><div id="current_date"><script>getTIME();</script></p>
+	</strong>
+	</div>
+    </body>
+</html>
