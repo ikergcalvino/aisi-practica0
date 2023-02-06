@@ -26,9 +26,9 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder "XXX", "XXX", mount_options: ["XXX"]
 
     # Configure hostmanager plugin
-    config.hostmanager.enabled = XXX
-    config.hostmanager.manage_host = XXX
-    config.hostmanager.manage_guest = XXX
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = true
+    config.hostmanager.manage_guest = true
 
     # Provider-specific customizations (CPU, memory, disk...)
     config.vm.provider "virtualbox" do |vb|
