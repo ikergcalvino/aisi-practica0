@@ -42,7 +42,7 @@ Vagrant.configure("2") do |config|
 	
 	# Create the virtual disk if doesn't exist
 	unless File.exist?(disk)
-		vb.customize ["createmedium", "XXX", "--filename", XXX, "--format", "XXX", "--size", XXX]
+		vb.customize ["createmedium", "disk", "--filename", "disk01.vmdk", "--format", "VMDK", "--size", 2048]
 	end
 
 	# Add storage SAS controller only when the VM is provisioned for the first time
