@@ -12,10 +12,10 @@ end
 
 Vagrant.configure("2") do |config|
     # Box and hostname settings
-    config.vm.box = XXX
-    config.vm.box_version = XXX
-    config.vm.box_check_update = XXX
-    config.vm.hostname = "XXX-aisi2223"
+    config.vm.box = "ubuntu/focal64"
+    config.vm.box_version = "20230202.0.0"
+    config.vm.box_check_update = false
+    config.vm.hostname = "idc-aisi2223"
 
     # Network and port forwarding settings
     config.vm.network "XXX", guest: XXX, host: XXX
