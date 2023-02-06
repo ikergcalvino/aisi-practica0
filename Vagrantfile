@@ -18,9 +18,9 @@ Vagrant.configure("2") do |config|
     config.vm.hostname = "idc-aisi2223"
 
     # Network and port forwarding settings
-    config.vm.network "XXX", guest: XXX, host: XXX
-    config.vm.network "XXX", type: "XXX"
-    config.vm.network "XXX", ip: "XXX", netmask: "XXX"
+    config.vm.network "forwarded_port", guest: 80, host: 8080
+    config.vm.network "private_network", type: "dhcp"
+    config.vm.network "private_network", ip: "192.168.56.10", netmask: "255.255.255.0"
 
     # Synced folder
     config.vm.synced_folder "XXX", "XXX", mount_options: ["XXX"]
@@ -34,8 +34,8 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb|
 	vb.name = "AISI-P0-#{config.vm.hostname}"
 	vb.gui = false
-	vb.cpus = XXX
-	vb.memory = XXX
+	vb.cpus = 2
+	vb.memory = 2
 
 	sasController = "SAS Controller"
 	disk = "diskVM-SAS.vmdk"
