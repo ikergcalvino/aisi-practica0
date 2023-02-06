@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
 	vb.name = "AISI-P0-#{config.vm.hostname}"
 	vb.gui = false
 	vb.cpus = 2
-	vb.memory = 2
+	vb.memory = 2048
 
 	sasController = "SAS Controller"
 	disk = "diskVM-SAS.vmdk"
