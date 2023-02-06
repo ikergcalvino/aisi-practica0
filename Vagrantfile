@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     config.vm.network "private_network", ip: "192.168.56.10", netmask: "255.255.255.0"
 
     # Synced folder
-    config.vm.synced_folder "html/", "/var/www/html", mount_options: ["XXX"]
+    config.vm.synced_folder "html/", "/var/www/html", mount_options: ["dmode=644,fmode=644"]
 
     # Configure hostmanager plugin
     config.hostmanager.enabled = true
@@ -51,20 +51,20 @@ Vagrant.configure("2") do |config|
 	end
 
 	# Attach the virtual disk into the storage controller
-	vb.customize ["storageattach", :id, "--storagectl", sasController, "--port", XXX, "--device", 0, "--type", "XXX", "--medium", XXX]
+	vb.customize ["storageattach", :id, "--storagectl", sasController, "--port", 1, "--device", 0, "--type", "hdd", "--medium", disk]
     end
 
     # Embedded provisioning through shell script
-    config.vm.provision "shell", run: "XXX", inline: <<-SHELL
+    config.vm.provision "shell", run: "once", inline: <<-SHELL
 	apt update
 	# Complete the following commands
-	apt install -y
-	systemctl
-	systemctl
-	mkfs.ext4
-	mkdir
+	apt install apache2 -y
+	systemctl start apache2
+	systemctl enable apache2
+	mkfs.ext4 /dev/sda
+	mkdir /mnt/idc-aisi2223
     SHELL
     
     # Provisioning through an external shell script
-    config.vm.provision "shell", run: "XXX", path: "provisioning/script.sh", args: "XXX"
+    config.vm.provision "shell", run: "always", path: "provisioning/script.sh", args: "/mnt/idc-aisi2223"
 end
