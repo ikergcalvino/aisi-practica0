@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     config.vm.network "private_network", ip: "192.168.56.10", netmask: "255.255.255.0"
 
     # Synced folder
-    config.vm.synced_folder "html/", "/var/www/html", mount_options: ["dmode=644,fmode=644"]
+    config.vm.synced_folder "html/", "/var/www/html", mount_options: ["dmode=755,fmode=644"]
 
     # Configure hostmanager plugin
     config.hostmanager.enabled = true
