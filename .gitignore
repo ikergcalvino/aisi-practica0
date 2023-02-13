@@ -1,2 +1,2 @@
-.vagrant
-diskVM-SAS.vmdk
+.vagrant/
+*.vmdk
